@@ -20,7 +20,7 @@ PaySim is a synthetic dataset generated from a real mobile money service operati
 
 Key characteristics:
 
-- **5 transaction types:** `CASH-IN`, `CASH-OUT`, `DEBIT`, `PAYMENT`, `TRANSFER`
+- **5 transaction types:** `CASH_IN`, `CASH_OUT`, `DEBIT`, `PAYMENT`, `TRANSFER`
 - **Fraud concentrated in 2 types:** only `TRANSFER` and `CASH_OUT` contain fraudulent transactions
 - **Severe class imbalance:** 8,213 fraud cases out of 6,362,620 (~0.129%)
 - **Built-in rule flag:** an `isFlaggedFraud` column that fires on transfers over 200,000 — useful as a naive baseline
@@ -37,7 +37,8 @@ Full schema and column-by-column notes are in [`data/schema.md`](data/schema.md)
 ├── data/
 │   ├── schema.md          # column definitions, types, gotchas
 │   └── *.csv              # gitignored — pull from Kaggle (see below)
-└── notebooks/             # EDA and modeling notebooks (coming)
+└── notebooks/
+    └── 01_sql_exploration.ipynb
 ```
 
 ## Getting the data
@@ -57,6 +58,7 @@ You should end up with `data/PS_20174392719_1491204439457_log.csv` (~470MB).
 ## Roadmap
 
 - [x] Repo skeleton, README, schema documentation
+- [x] SQL exploration notebook scaffold — 5 first-pass questions ready to run
 - [ ] EDA notebook — distributions, transaction-type breakdowns, fraud signatures
 - [ ] Feature engineering — balance-delta features, origin/destination patterns
 - [ ] Baseline models — logistic regression, gradient boosting
